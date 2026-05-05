@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spatial Biology Technology Landscape 2026 — STOmics White Paper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple-950: #160A3A;
+    --purple-900: #231259;
+    --purple-800: #341A82;
+    --purple-700: #4A25AB;
+    --purple-600: #6035C8;
+    --purple-400: #9B72E8;
+    --purple-200: #D4BEF9;
+    --purple-100: #EDE5FC;
+    --purple-50: #F7F4FF;
+    --teal-500: #12B889;
+    --teal-400: #2ED4A5;
+    --teal-100: #D4F4EC;
+    --white: #FFFFFF;
+    --gray-50: #F9F9F8;
+    --gray-100: #F0EFF0;
+    --gray-200: #E0DFE2;
+    --gray-400: #9B9AA0;
+    --gray-600: #5E5C66;
+    --gray-800: #28262E;
+    --gray-900: #16141A;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--gray-800);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    background: rgba(22, 10, 58, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 32px; height: 32px;
+    background: var(--purple-600);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .logo-text {
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-text span { color: var(--teal-400); }
+
+  .nav-cta {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--white);
+    background: var(--purple-600);
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-cta:hover { background: var(--purple-700); }
+
+  .hero {
+    background: var(--purple-950);
+    padding: 160px 48px 100px;
+    position: relative;
+    overflow: hidden;
+    min-height: 680px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(96,53,200,0.35) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.6;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -200px; right: -100px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(96,53,200,0.25) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-glow-2 {
+    position: absolute;
+    bottom: -150px; left: 30%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(18,184,137,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(96,53,200,0.25);
+    border: 1px solid rgba(96,53,200,0.5);
+    color: var(--purple-200);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 100px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--teal-400);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 1.08;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--purple-400);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+    max-width: 480px;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .hero-stat-item { display: flex; flex-direction: column; gap: 4px; }
+
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  .stat-divider {
+    width: 1px; height: 40px;
+    background: rgba(255,255,255,0.12);
+  }
+
+  .form-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px 32px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06);
+    animation: fadeUp 0.7s ease 0.3s both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-left > * {
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero-left > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.15s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.25s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.35s; }
+
+  .form-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--purple-600);
+    margin-bottom: 8px;
+  }
+
+  .form-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 6px;
+  }
+
+  .form-sub {
+    font-size: 13px;
+    color: var(--gray-400);
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+
+  .form-group { margin-bottom: 14px; }
+
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-600);
+    margin-bottom: 5px;
+    letter-spacing: 0.02em;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--gray-800);
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.15s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus { border-color: var(--purple-600); }
+
+  .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239B9AA0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 13px;
+    background: var(--purple-700);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.15s, transform 0.1s;
+    letter-spacing: 0.01em;
+  }
+
+  .submit-btn:hover { background: var(--purple-800); }
+  .submit-btn:active { transform: scale(0.99); }
+
+  .form-privacy {
+    text-align: center;
+    font-size: 11px;
+    color: var(--gray-400);
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  .form-privacy a { color: var(--purple-600); text-decoration: none; }
+
+  .success-state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    padding: 16px 0;
+  }
+
+  .success-icon {
+    width: 52px; height: 52px;
+    background: var(--teal-100);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .success-state h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--gray-900);
+  }
+
+  .success-state p {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    max-width: 280px;
+  }
+
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--purple-700);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    border: none;
+  }
+
+  .download-btn:hover { background: var(--purple-800); }
+
+  .section-wrap { max-width: 1100px; margin: 0 auto; }
+
+  .teaser-section {
+    padding: 100px 48px;
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-100);
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--purple-600);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 500;
+    color: var(--gray-900);
+    margin-bottom: 16px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    color: var(--gray-600);
+    max-width: 560px;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 56px;
+  }
+
+  .chapters-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .chapter-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .chapter-card:hover {
+    border-color: var(--purple-200);
+    box-shadow: 0 8px 32px rgba(74,37,171,0.08);
+  }
+
+  .chapter-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--purple-100);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .chapter-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--purple-600);
+    background: var(--purple-50);
+    padding: 3px 10px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .chapter-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .chapter-desc {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .chapter-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, var(--white));
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 14px;
+    justify-content: center;
+  }
+
+  .locked-pill {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-400);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .comparison-wrap {
+    padding: 100px 48px;
+    background: var(--white);
+  }
+
+  .comparison-table-wrapper {
+    position: relative;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+    margin-top: 48px;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .comparison-table thead th {
+    padding: 14px 20px;
+    text-align: left;
+    background: var(--gray-50);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--gray-600);
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .comparison-table thead th.hl { background: var(--purple-50); color: var(--purple-700); border-bottom: 1px solid var(--purple-200); }
+
+  .comparison-table tbody tr:not(:last-child) td { border-bottom: 1px solid var(--gray-100); }
+
+  .comparison-table tbody td {
+    padding: 14px 20px;
+    color: var(--gray-700);
+    font-size: 13px;
+    line-height: 1.4;
+    vertical-align: middle;
+  }
+
+  .comparison-table tbody td:first-child {
+    font-weight: 600;
+    color: var(--gray-800);
+    font-size: 12px;
+    width: 160px;
+  }
+
+  .comparison-table tbody td.hl {
+    background: rgba(247,244,255,0.7);
+    font-weight: 500;
+    color: var(--purple-800);
+  }
+
+  .badge-yes {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #E6FBF4;
+    color: #0B6F4A;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  .badge-no { color: var(--gray-400); font-size: 12px; }
+
+  .table-blur-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 110px;
+    background: linear-gradient(transparent, rgba(255,255,255,0.97));
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 22px;
+  }
+
+  .unlock-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--purple-700);
+    color: var(--white);
+    padding: 11px 24px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.15s;
+  }
+
+  .unlock-btn:hover { background: var(--purple-800); }
+
+  .insights-section {
+    background: var(--purple-950);
+    padding: 100px 48px;
+  }
+
+  .insights-section .section-label { color: var(--teal-400); }
+  .insights-section .section-title { color: var(--white); }
+  .insights-section .section-sub { color: rgba(255,255,255,0.45); }
+
+  .insights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 48px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .insight-item {
+    padding: 36px 28px;
+    background: var(--purple-950);
+    transition: background 0.2s;
+  }
+
+  .insight-item:hover { background: rgba(96,53,200,0.1); }
+
+  .insight-icon {
+    width: 40px; height: 40px;
+    background: rgba(96,53,200,0.25);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .insight-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .insight-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.42);
+    line-height: 1.55;
+  }
+
+  .quote-section {
+    padding: 80px 48px;
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-100);
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .quote-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+
+  blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    font-style: italic;
+    color: var(--gray-800);
+    line-height: 1.45;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  blockquote::before { content: '\201C'; color: var(--purple-300); }
+  blockquote::after  { content: '\201D'; color: var(--purple-300); }
+
+  .quote-attr { font-size: 13px; color: var(--gray-400); font-weight: 500; }
+
+  .bottom-cta { padding: 100px 48px; }
+
+  .bottom-cta-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+
+  .cta-form-mini {
+    background: var(--purple-50);
+    border: 1px solid var(--purple-100);
+    border-radius: 16px;
+    padding: 36px;
+    text-align: left;
+    margin-top: 40px;
+  }
+
+  footer {
+    background: var(--gray-900);
+    padding: 28px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo { display: flex; align-items: center; gap: 10px; }
+
+  .footer-logo-text {
+    font-weight: 600; font-size: 15px;
+    color: var(--white); letter-spacing: -0.01em;
+  }
+
+  .footer-logo-text span { color: var(--teal-400); }
+
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+
+  .footer-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.38);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.22); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .hero { padding: 120px 24px 80px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero h1 { font-size: 38px; }
+    .chapters-grid { grid-template-columns: 1fr; }
+    .insights-grid { grid-template-columns: repeat(2, 1fr); }
+    .teaser-section, .comparison-wrap, .insights-section, .quote-section, .bottom-cta { padding: 64px 24px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-mark">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="3" fill="white" opacity="0.9"/>
+        <circle cx="9" cy="3" r="1.5" fill="white" opacity="0.5"/>
+        <circle cx="9" cy="15" r="1.5" fill="white" opacity="0.5"/>
+        <circle cx="3" cy="9" r="1.5" fill="white" opacity="0.5"/>
+        <circle cx="15" cy="9" r="1.5" fill="white" opacity="0.5"/>
+        <circle cx="4.4" cy="4.4" r="1" fill="white" opacity="0.3"/>
+        <circle cx="13.6" cy="13.6" r="1" fill="white" opacity="0.3"/>
+        <circle cx="4.4" cy="13.6" r="1" fill="white" opacity="0.3"/>
+        <circle cx="13.6" cy="4.4" r="1" fill="white" opacity="0.3"/>
+      </svg>
+    </div>
+    <span class="logo-text">ST<span>Omics</span></span>
+  </a>
+  <a href="#get-report" class="nav-cta">Get the Report</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">White Paper · February 2026</div>
+      <h1>The Spatial Biology<br><em>Technology Landscape</em></h1>
+      <p class="hero-sub">A comprehensive guide to sequencing- and imaging-based spatial platforms — covering resolution, throughput, multi-omics capability, and how to choose the right technology for your research.</p>
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">19+</span>
+          <span class="hero-stat-label">Platforms compared</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">38</span>
+          <span class="hero-stat-label">Pages of analysis</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">0.22μm</span>
+          <span class="hero-stat-label">Best-in-class resolution</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card" id="get-report">
+      <div id="form-view">
+        <p class="form-eyebrow">Free Download</p>
+        <h2>Get the full white paper</h2>
+        <p class="form-sub">Instant access to 38 pages of independent platform analysis.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-first">First name</label>
+            <input type="text" id="f-first" placeholder="Emma" autocomplete="given-name">
+          </div>
+          <div class="form-group">
+            <label for="f-last">Last name</label>
+            <input type="text" id="f-last" placeholder="Müller" autocomplete="family-name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f-email">Work email</label>
+          <input type="email" id="f-email" placeholder="emma@university.de" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="f-inst">Institution</label>
+          <input type="text" id="f-inst" placeholder="Charité Berlin" autocomplete="organization">
+        </div>
+        <div class="form-group">
+          <label for="f-role">Your role</label>
+          <select id="f-role">
+            <option value="" disabled selected>Select your role</option>
+            <option>Principal Investigator / PI</option>
+            <option>Postdoc Researcher</option>
+            <option>PhD Student</option>
+            <option>Core Facility Manager</option>
+            <option>Industry Scientist</option>
+            <option>Procurement / Purchasing</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button class="submit-btn" onclick="handleSubmit('f-first','f-last','f-email','f-inst','f-role','form-view','success-view')">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+          Download White Paper
+        </button>
+        <p class="form-privacy">By submitting you agree to our <a href="#">Privacy Policy</a>. Unsubscribe any time.</p>
+      </div>
+      <div class="success-state" id="success-view">
+        <div class="success-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#12B889" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h3>Your copy is ready</h3>
+        <p>Click below to download the full Spatial Biology Technology Landscape 2026 white paper.</p>
+        <button class="download-btn" onclick="alert('In production, this would trigger the PDF download.')">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v8M4 7l4 4 4-4M3 13h10"/></svg>
+          Download PDF
+        </button>
+        <p style="font-size:12px;color:var(--gray-400);">A copy has also been sent to your email.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="teaser-section">
+  <div class="section-wrap">
+    <p class="section-label">Inside the Report</p>
+    <h2 class="section-title">Everything you need to evaluate<br>spatial biology platforms</h2>
+    <p class="section-sub">Five chapters covering the full landscape — from foundational technology to detailed head-to-head benchmarks.</p>
+    <div class="chapters-grid">
+
+      <div class="chapter-card">
+        <div class="chapter-num">01</div>
+        <span class="chapter-tag">Introduction</span>
+        <h3 class="chapter-title">A Brief History of Spatial Biology</h3>
+        <p class="chapter-desc">From the Human Genome Project and NGS to single-cell sequencing and the landmark 2016 Ståhl et al. paper that launched modern spatial transcriptomics.</p>
+      </div>
+
+      <div class="chapter-card">
+        <div class="chapter-num">02</div>
+        <span class="chapter-tag">Technology Overview</span>
+        <h3 class="chapter-title">Sequencing-Based vs. Imaging-Based Platforms</h3>
+        <p class="chapter-desc">How barcoded capture, in situ sequencing, and multiplexed immunofluorescence differ in resolution, output, and workflow requirements.</p>
+      </div>
+
+      <div class="chapter-card" style="padding-bottom: 60px;">
+        <div class="chapter-num">03</div>
+        <span class="chapter-tag">Deep Dives</span>
+        <h3 class="chapter-title">Platform-by-Platform Analysis</h3>
+        <p class="chapter-desc" style="filter:blur(3.5px);user-select:none;pointer-events:none;">Detailed profiles of all 19 commercial platforms including 10x Visium HD, NanoString CosMx, Xenium, MERSCOPE, Akoya PhenoCycler, and more — covering biochemistry, resolution, compatibility...</p>
+        <div class="chapter-overlay">
+          <span class="locked-pill">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="8" height="7" rx="1"/><path d="M4 5V3.5a2 2 0 014 0V5"/></svg>
+            Unlock with free download
+          </span>
+        </div>
+      </div>
+
+      <div class="chapter-card" style="padding-bottom: 60px;">
+        <div class="chapter-num">04</div>
+        <span class="chapter-tag">Decision Guide</span>
+        <h3 class="chapter-title">Choosing the Right Platform for Your Research</h3>
+        <p class="chapter-desc" style="filter:blur(3.5px);user-select:none;pointer-events:none;">A practical framework matching technology choice to experimental goals, sample types, throughput needs, and budget. Includes decision trees and use-case matrices for common research scenarios...</p>
+        <div class="chapter-overlay">
+          <span class="locked-pill">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="8" height="7" rx="1"/><path d="M4 5V3.5a2 2 0 014 0V5"/></svg>
+            Unlock with free download
+          </span>
+        </div>
+      </div>
+
+      <div class="chapter-card" style="padding-bottom: 60px;">
+        <div class="chapter-num">05</div>
+        <span class="chapter-tag">Benchmark Tables</span>
+        <h3 class="chapter-title">Full Side-by-Side Comparison Across 12 Parameters</h3>
+        <p class="chapter-desc" style="filter:blur(3.5px);user-select:none;pointer-events:none;">Complete benchmark tables comparing resolution, scanning area, multi-omics capability, FFPE support, capital equipment costs, and sequencing demands across every platform in the landscape...</p>
+        <div class="chapter-overlay">
+          <span class="locked-pill">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="8" height="7" rx="1"/><path d="M4 5V3.5a2 2 0 014 0V5"/></svg>
+            Unlock with free download
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE TEASER -->
+<section class="comparison-wrap">
+  <div class="section-wrap">
+    <p class="section-label">Platform Snapshot</p>
+    <h2 class="section-title">How sequencing-based platforms compare</h2>
+    <p class="section-sub" style="margin-bottom:0;">A preview of the detailed comparison tables included in the full report.</p>
+    <div class="comparison-table-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th class="hl">STOmics Stereo-seq</th>
+            <th>10x Visium HD</th>
+            <th>NanoString GeoMx</th>
+            <th>Takara Curio Seeker</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Resolution</td>
+            <td class="hl"><strong>0.22 μm (nanoscale)</strong></td>
+            <td>2 μm</td>
+            <td>~10 μm (ROI min.)</td>
+            <td>10 μm (bead-level)</td>
+          </tr>
+          <tr>
+            <td>Max Scan Area</td>
+            <td class="hl"><strong>Up to 20 × 30 mm</strong></td>
+            <td>6.5 × 6.5 mm</td>
+            <td>ROI-based</td>
+            <td>10 × 10 mm</td>
+          </tr>
+          <tr>
+            <td>FFPE Compatible</td>
+            <td class="hl"><span class="badge-yes">✓ Yes (OMNI)</span></td>
+            <td><span class="badge-yes">✓ Yes</span></td>
+            <td><span class="badge-yes">✓ Yes</span></td>
+            <td><span class="badge-no">✗ No</span></td>
+          </tr>
+          <tr>
+            <td>Multi-omics</td>
+            <td class="hl"><strong>RNA + Protein (100+ plex)</strong></td>
+            <td>35-plex protein add-on</td>
+            <td>570+ proteins</td>
+            <td><span class="badge-no">✗ No</span></td>
+          </tr>
+          <tr>
+            <td>Extra Equipment</td>
+            <td class="hl"><strong>None required</strong></td>
+            <td>CytAssist instrument</td>
+            <td>Microscope + DMD</td>
+            <td>None required</td>
+          </tr>
+          <tr>
+            <td>Species Support</td>
+            <td class="hl"><strong>Species agnostic</strong></td>
+            <td>Human &amp; Mouse</td>
+            <td>Human &amp; Mouse</td>
+            <td>Any eukaryote</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="table-blur-overlay">
+        <a href="#get-report" class="unlock-btn">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="7" width="10" height="9" rx="1"/>
+            <path d="M5.5 7V5a2.5 2.5 0 015 0v2"/>
+          </svg>
+          See the full comparison — download free
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY NUMBERS -->
+<section class="insights-section">
+  <div class="section-wrap">
+    <p class="section-label">By the Numbers</p>
+    <h2 class="section-title">The spatial biology landscape<br>in 2026</h2>
+    <p class="section-sub">Key figures from our independent technology analysis.</p>
+    <div class="insights-grid">
+      <div class="insight-item">
+        <div class="insight-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9B72E8" stroke-width="1.5">
+            <circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 3"/>
+          </svg>
+        </div>
+        <div class="insight-num">19+</div>
+        <div class="insight-label">Commercial platforms profiled across sequencing- and imaging-based technologies</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9B72E8" stroke-width="1.5">
+            <path d="M2 14l5-5 4 4 7-9"/>
+          </svg>
+        </div>
+        <div class="insight-num">270×</div>
+        <div class="insight-label">Resolution advantage of Stereo-seq over standard Visium (0.22 μm vs 55 μm spots)</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9B72E8" stroke-width="1.5">
+            <rect x="2" y="4" width="16" height="12" rx="2"/>
+            <path d="M6 8h8M6 12h5"/>
+          </svg>
+        </div>
+        <div class="insight-num">30K+</div>
+        <div class="insight-label">RNA targets captured per run with whole-transcriptome sequencing-based platforms</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9B72E8" stroke-width="1.5">
+            <path d="M10 2a8 8 0 100 16A8 8 0 0010 2z"/><path d="M10 6v4h4"/>
+          </svg>
+        </div>
+        <div class="insight-num">2016</div>
+        <div class="insight-label">Year modern spatial transcriptomics was born, from Ståhl et al.'s landmark Science paper</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="quote-section">
+  <div class="quote-inner">
+    <blockquote>
+      Spatial biology is transforming how we understand tissue architecture, cellular communication, and disease microenvironments — from cancer to neuroscience and beyond.
+    </blockquote>
+    <p class="quote-attr">Spatial Biology Technology Landscape 2026 — STOmics White Paper</p>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <div class="bottom-cta-inner">
+    <p class="section-label" style="text-align:center;">Free Download</p>
+    <h2 class="section-title" style="text-align:center;">Ready to find the right<br>spatial platform?</h2>
+    <p class="section-sub" style="max-width:100%;text-align:center;margin-bottom:0;">Get 38 pages of independent analysis, benchmark tables, and a practical decision guide — free.</p>
+    <div class="cta-form-mini">
+      <div id="cta-form-view">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="c-first">First name</label>
+            <input type="text" id="c-first" placeholder="Emma">
+          </div>
+          <div class="form-group">
+            <label for="c-last">Last name</label>
+            <input type="text" id="c-last" placeholder="Müller">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="c-email">Work email</label>
+          <input type="email" id="c-email" placeholder="emma@university.de">
+        </div>
+        <div class="form-group">
+          <label for="c-inst">Institution</label>
+          <input type="text" id="c-inst" placeholder="Charité Berlin">
+        </div>
+        <div class="form-group">
+          <label for="c-role">Role</label>
+          <select id="c-role">
+            <option value="" disabled selected>Select your role</option>
+            <option>Principal Investigator / PI</option>
+            <option>Postdoc Researcher</option>
+            <option>PhD Student</option>
+            <option>Core Facility Manager</option>
+            <option>Industry Scientist</option>
+            <option>Procurement / Purchasing</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button class="submit-btn" onclick="handleSubmit('c-first','c-last','c-email','c-inst','c-role','cta-form-view','cta-success-view')">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+          Download White Paper — Free
+        </button>
+        <p class="form-privacy" style="margin-top:14px;">We respect your privacy. Unsubscribe at any time.</p>
+      </div>
+      <div id="cta-success-view" style="display:none;text-align:center;padding:20px 0;">
+        <div class="success-icon" style="margin:0 auto 16px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#12B889" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-bottom:10px;">Your copy is ready</h3>
+        <button class="download-btn" style="margin:0 auto 10px;" onclick="alert('In production, this would trigger the PDF download.')">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v8M4 7l4 4 4-4M3 13h10"/></svg>
+          Download PDF
+        </button>
+        <p style="font-size:12px;color:var(--gray-400);">A copy has also been sent to your email.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">
+    <div class="logo-mark" style="width:28px;height:28px;border-radius:6px;">
+      <svg width="14" height="14" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="3" fill="white" opacity="0.9"/>
+        <circle cx="9" cy="3" r="1.5" fill="white" opacity="0.5"/>
+        <circle cx="9" cy="15" r="1.5" fill="white" opacity="0.5"/>
+        <circle cx="3" cy="9" r="1.5" fill="white" opacity="0.5"/>
+        <circle cx="15" cy="9" r="1.5" fill="white" opacity="0.5"/>
+      </svg>
+    </div>
+    <span class="footer-logo-text">ST<span>Omics</span></span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="https://en.stomics.tech/" target="_blank">stomics.tech</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 STOmics · MGI Tech Co., Ltd.</span>
+</footer>
+
+<script>
+  function handleSubmit(fId, lId, eId, iId, rId, showId, hideId) {
+    var first = document.getElementById(fId).value.trim();
+    var last  = document.getElementById(lId).value.trim();
+    var email = document.getElementById(eId).value.trim();
+    var inst  = document.getElementById(iId).value.trim();
+    var role  = document.getElementById(rId).value;
+
+    if (!first || !last) { alert('Please enter your full name.'); return; }
+    if (!email || !email.includes('@') || !email.includes('.')) { alert('Please enter a valid work email.'); return; }
+    if (!inst) { alert('Please enter your institution.'); return; }
+    if (!role) { alert('Please select your role.'); return; }
+
+    document.getElementById(showId).style.display = 'none';
+    var sv = document.getElementById(hideId);
+    sv.style.display = 'flex';
+    sv.style.flexDirection = 'column';
+    sv.style.alignItems = 'center';
+  }
+</script>
+</body>
+</html>
